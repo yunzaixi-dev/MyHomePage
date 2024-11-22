@@ -1,9 +1,9 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 export async function updateFaviconFromGithub(avatarUrl: string) {
   try {
     // 下载头像
-    const response: AxiosResponse<Blob> = await axios.get(avatarUrl, {
+    const response = await axios.get<Blob>(avatarUrl, {
       responseType: 'blob'
     });
     
