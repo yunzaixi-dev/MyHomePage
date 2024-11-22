@@ -8,10 +8,11 @@ export async function updateFaviconFromGithub(avatarUrl: string) {
     });
     
     // 创建 Blob URL
-    const blobUrl = URL.createObjectURL(response.data);
+    const blob = new Blob([response.data], { type: 'image/png' });
+    const blobUrl = URL.createObjectURL(blob);
     
     // 更新网站图标
-    const linkElement = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    const linkElement = document.querySelector("link[rel*='icon']") as HTMLLinkElement || document.createElement('link');
     linkElement.type = 'image/x-icon';
     linkElement.rel = 'icon';
     linkElement.href = blobUrl;
