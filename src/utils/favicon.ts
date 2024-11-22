@@ -1,15 +1,14 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 export async function updateFaviconFromGithub(avatarUrl: string) {
   try {
     // 下载头像
-    const response = await axios.get(avatarUrl, {
+    const response: AxiosResponse<Blob> = await axios.get(avatarUrl, {
       responseType: 'blob'
     });
     
     // 创建 Blob URL
-    const blob = new Blob([response.data], { type: 'image/png' });
-    const blobUrl = URL.createObjectURL(blob);
+    const blobUrl = URL.createObjectURL(response.data);
     
     // 更新网站图标
     const linkElement = document.querySelector("link[rel*='icon']") as HTMLLinkElement || document.createElement('link');
