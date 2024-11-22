@@ -150,10 +150,14 @@ const MainPage: React.FC = () => {
 
           {/* 项目展示 */}
           <section className="flex flex-col items-center">
-            <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold mb-6 text-center
-              ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-              Featured Projects
-            </h2>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-r from-transparent ${theme === 'dark' ? 'to-white' : 'to-gray-900'}`}></div>
+              <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold
+                ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                Featured Projects
+              </h2>
+              <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-l from-transparent ${theme === 'dark' ? 'to-white' : 'to-gray-900'}`}></div>
+            </div>
             {loading ? (
               <div className="grid sm:grid-cols-2 gap-4 w-full max-w-5xl">
                 {[1, 2, 3, 4].map((i) => (

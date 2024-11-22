@@ -16,10 +16,14 @@ export const TechStack: React.FC<TechStackProps> = ({ items }) => {
   
   return (
     <section>
-      <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold mb-8 text-center
-        ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-        Tech Stack
-      </h2>
+      <div className="flex items-center justify-center gap-4 mb-8">
+        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-r from-transparent ${theme === 'dark' ? 'to-white' : 'to-gray-900'}`}></div>
+        <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold
+          ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+          Tech Stack
+        </h2>
+        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-l from-transparent ${theme === 'dark' ? 'to-white' : 'to-gray-900'}`}></div>
+      </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
         {items.map((tech) => (
           <div

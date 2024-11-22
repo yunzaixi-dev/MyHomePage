@@ -37,10 +37,14 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, loading }) => {
 
   return (
     <section className="text-center">
-      <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold mb-4
-        ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-        About Me
-      </h2>
+      <div className="flex items-center justify-center gap-4 mb-4">
+        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-r from-transparent ${theme === 'dark' ? 'to-white' : 'to-gray-900'}`}></div>
+        <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold
+          ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+          About Me
+        </h2>
+        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-l from-transparent ${theme === 'dark' ? 'to-white' : 'to-gray-900'}`}></div>
+      </div>
       <p className={`text-base sm:text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto mb-6
         ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
         {profile.bio}

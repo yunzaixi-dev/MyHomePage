@@ -16,10 +16,14 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({ items }) => {
 
   return (
     <section className="text-center">
-      <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold mb-6
-        ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-        Connect With Me
-      </h2>
+      <div className="flex items-center justify-center gap-4 mb-6">
+        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-r from-transparent ${theme === 'dark' ? 'to-white' : 'to-gray-900'}`}></div>
+        <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold
+          ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+          Connect With Me
+        </h2>
+        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-l from-transparent ${theme === 'dark' ? 'to-white' : 'to-gray-900'}`}></div>
+      </div>
       <div className="flex justify-center gap-8">
         {items.map((social) => (
           <a
