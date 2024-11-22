@@ -50,7 +50,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, loading }) => {
           ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
           {contactInfo.map((item, index) => (
             <div key={index} className="flex items-center space-x-2">
-              <span className={theme === 'dark' ? 'text-purple-400' : 'text-purple-500'}>
+              <span className={theme === 'dark' ? 'text-blue-400' : 'text-blue-500'}>
                 {item.icon}
               </span>
               {item.link ? (
@@ -60,8 +60,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({ profile, loading }) => {
                   rel="noopener noreferrer"
                   className={`transition-colors
                     ${theme === 'dark'
-                      ? 'hover:text-purple-400'
-                      : 'hover:text-purple-500'}`}
+                      ? 'hover:text-blue-400'
+                      : 'hover:text-blue-500'}`}
                 >
                   {item.text}
                 </a>
