@@ -1,11 +1,37 @@
 import React from 'react';
-import { FaGithub, FaStar, FaCodeBranch, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaStar, FaCodeBranch, FaExternalLinkAlt, FaJava, FaJs } from 'react-icons/fa';
+import { SiDart, SiKotlin, SiVite, SiC, SiCplusplus } from 'react-icons/si';
 import { Repository } from '../services/github';
 import { useTheme } from '../contexts/ThemeContext';
 
 interface ProjectCardProps {
   repo: Repository;
 }
+
+interface TechIcon {
+  [key: string]: {
+    icon: React.ComponentType<{ size?: number }>;
+    priority: number;
+  };
+}
+
+const techIcons: TechIcon = {
+  javascript: { icon: FaJs, priority: 3 },
+  js: { icon: FaJs, priority: 3 },
+  java: { icon: FaJava, priority: 4 },
+  dart: { icon: SiDart, priority: 5 },
+  kotlin: { icon: SiKotlin, priority: 6 },
+  vite: { icon: SiVite, priority: 7 },
+  c: { icon: SiC, priority: 1 },
+  cpp: { icon: SiCplusplus, priority: 2 },
+  'c++': { icon: SiCplusplus, priority: 2 }
+};
+
+const sortTechnologies = (a: string, b: string): number => {
+  const priorityA = techIcons[a.toLowerCase()]?.priority || 999;
+  const priorityB = techIcons[b.toLowerCase()]?.priority || 999;
+  return priorityA - priorityB;
+};
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ repo }) => {
   const { theme } = useTheme();
@@ -70,19 +96,38 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ repo }) => {
           }`}>
           {repo.description}
         </p>
+        {/* Technologies Section */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {repo.topics.slice(0, 4).map((topic) => (
+          {repo.language && (
             <span
-              key={topic}
-              className={`px-3 py-1 text-xs rounded-full 
+              className={`px-3 py-1 text-xs rounded-full flex items-center gap-1
               ${theme === 'dark'
-                ? 'bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-200 border border-purple-500/20'
-                : 'bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 border border-purple-200'
+                ? 'bg-gradient-to-r from-sky-500/20 to-blue-500/20 text-sky-200 border border-sky-500/20'
+                : 'bg-gradient-to-r from-sky-100 to-blue-100 text-sky-700 border border-sky-200'
               }`}
             >
-              {topic}
+              {techIcons[repo.language.toLowerCase()]?.icon && 
+                React.createElement(techIcons[repo.language.toLowerCase()].icon, { size: 12 })}
+              {repo.language}
             </span>
-          ))}
+          )}
+          {[...repo.topics]
+            .sort(sortTechnologies)
+            .slice(0, 4)
+            .map((topic) => (
+              <span
+                key={topic}
+                className={`px-3 py-1 text-xs rounded-full flex items-center gap-1
+                ${theme === 'dark'
+                  ? 'bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-200 border border-purple-500/20'
+                  : 'bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 border border-purple-200'
+                }`}
+              >
+                {techIcons[topic.toLowerCase()]?.icon && 
+                  React.createElement(techIcons[topic.toLowerCase()].icon, { size: 12 })}
+                {topic}
+              </span>
+            ))}
         </div>
         <div className={`flex items-center space-x-4 text-sm
           ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
