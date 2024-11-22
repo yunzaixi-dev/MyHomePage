@@ -37,6 +37,7 @@ const MainPage: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [githubProfile, setGithubProfile] = useState<GitHubProfile | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const fetchGitHubProfile = async () => {
@@ -120,6 +121,59 @@ const MainPage: React.FC = () => {
           : 'bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.15),rgba(56,189,248,0.1),rgba(255,255,255,0))]'
         }`} />
       
+      {/* 菜单按钮 */}
+      <button
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        className={`fixed z-50 top-4 left-4 p-2 rounded-full transition-all duration-300 shadow-lg
+          ${theme === 'dark'
+            ? 'bg-gray-800 hover:bg-gray-700 text-gray-200 hover:text-white'
+            : 'bg-white hover:bg-gray-100 text-gray-600 hover:text-gray-800'
+          }`}
+        aria-label="Toggle contact menu"
+      >
+        <FaEnvelope size={20} />
+      </button>
+
+      {/* 滑出式选单 */}
+      <div className={`fixed z-40 top-0 left-0 h-full w-64 transform transition-transform duration-300 ease-in-out
+        ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}
+        ${theme === 'dark'
+          ? 'bg-gray-800/95 backdrop-blur-sm text-white'
+          : 'bg-white/95 backdrop-blur-sm text-gray-900'
+        }`}>
+        <div className="pt-20 px-4">
+          <h3 className={`text-lg font-semibold mb-6 px-4 ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
+            Contact Me
+          </h3>
+          <nav className="space-y-4">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center gap-3 py-2 px-4 rounded-lg transition-colors duration-200
+                  ${theme === 'dark'
+                    ? 'hover:bg-white/10'
+                    : 'hover:bg-gray-100'
+                  }`}
+              >
+                {link.icon}
+                <span>{link.label}</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      {/* 点击外部关闭菜单 */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-black/20 backdrop-blur-sm"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
       {/* 暗色模式切换按钮 */}
       <button
         onClick={toggleTheme}
@@ -205,15 +259,15 @@ const MainPage: React.FC = () => {
 
           {/* 联系方式 */}
           <SocialLinks items={socialLinks} />
-        </main>
 
-        {/* 页脚 */}
-        <footer className={`w-full text-center py-8 mt-16
-          ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
-          <p className="text-sm">
-            &copy; {new Date().getFullYear()} zaixi.dev - Crafted with ❤️ using React & Tailwind
-          </p>
-        </footer>
+          {/* 页脚 */}
+          <footer className={`w-full text-center py-8 mt-16
+            ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
+            <p className="text-sm">
+              &copy; {new Date().getFullYear()} zaixi.dev - Crafted with ❤️ using React & Tailwind
+            </p>
+          </footer>
+        </main>
       </div>
     </div>
   );
