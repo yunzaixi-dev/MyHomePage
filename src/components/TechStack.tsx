@@ -1,5 +1,4 @@
 import React from 'react';
-import { IconType } from 'react-icons';
 import { useTheme } from '../contexts/ThemeContext';
 
 interface TechStackItemType {

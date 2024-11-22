@@ -1,6 +1,6 @@
 // src/pages/MainPage.tsx
 import React, { useEffect, useState } from 'react';
-import { FaGithub, FaEnvelope, FaMedium, FaLinkedin, FaGitAlt } from 'react-icons/fa';
+import { FaGithub, FaEnvelope, FaMedium, FaGitAlt } from 'react-icons/fa';
 import { DiRedis } from 'react-icons/di';
 import { BsSun, BsMoon } from 'react-icons/bs';
 import { 
