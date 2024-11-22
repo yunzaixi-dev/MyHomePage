@@ -1,7 +1,13 @@
 import MainPage from './pages/main-page'
+import AnimatedBackground from './components/AnimatedBackground'
 
 function App() {
-  return <MainPage />
+  return (
+    <>
+      <AnimatedBackground />
+      <MainPage />
+    </>
+  )
 }
 
 export default App
