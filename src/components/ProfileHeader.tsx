@@ -24,7 +24,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile, loading }
   if (!profile) {
     return (
       <div className="flex flex-col items-center">
-        <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+        <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-blue-500 flex items-center justify-center">
           <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">Y</span>
         </div>
         <div className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>
@@ -39,15 +39,15 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile, loading }
       <img
         src={profile.avatarUrl}
         alt={profile.name}
-        className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full mb-4 border-4 border-purple-500 shadow-lg"
+        className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full mb-4 border-4 border-blue-500 shadow-lg"
       />
       <div className="flex items-center gap-4 mb-4">
-        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-r from-transparent ${theme === 'dark' ? 'to-purple-400' : 'to-purple-500'}`}></div>
+        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-r from-transparent ${theme === 'dark' ? 'to-blue-400' : 'to-blue-500'}`}></div>
         <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-bold
           ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
           {profile.name}
         </h1>
-        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-l from-transparent ${theme === 'dark' ? 'to-purple-400' : 'to-purple-500'}`}></div>
+        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-l from-transparent ${theme === 'dark' ? 'to-blue-400' : 'to-blue-500'}`}></div>
       </div>
       <div className={`flex items-center space-x-6
         ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
