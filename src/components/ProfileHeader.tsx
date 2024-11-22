@@ -39,15 +39,33 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile, loading }
       <img
         src={profile.avatarUrl}
         alt={profile.name}
-        className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full mb-4 border-4 border-blue-500 shadow-lg"
+        className={`w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full mb-4
+          ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}
+        style={{
+          padding: '4px',
+          background: `linear-gradient(to right top, #f59e0b, #e879f9, #6366f1) padding-box,
+                      linear-gradient(to right top, #f59e0b, #e879f9, #6366f1) border-box`,
+          border: '4px solid transparent'
+        }}
       />
-      <div className="flex items-center gap-4 mb-4">
-        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-r from-transparent ${theme === 'dark' ? 'to-blue-400' : 'to-blue-500'}`}></div>
-        <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-bold
+      <div className="relative">
+        {/* 名字容器 */}
+        <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-bold relative px-8 py-2 group
           ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+          {/* 背景效果 */}
+          <span className="absolute inset-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left bg-current opacity-5"></span>
+          
+          {/* 左侧装饰 */}
+          <span className="absolute left-0 top-1/2 w-3 h-px transform -translate-y-1/2 origin-left
+            transition-all duration-300 group-hover:w-4 bg-current opacity-70"></span>
+          
+          {/* 右侧装饰 */}
+          <span className="absolute right-0 top-1/2 w-3 h-px transform -translate-y-1/2 origin-right
+            transition-all duration-300 group-hover:w-4 bg-current opacity-70"></span>
+          
+          {/* 名字文本 */}
           {profile.name}
         </h1>
-        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-l from-transparent ${theme === 'dark' ? 'to-blue-400' : 'to-blue-500'}`}></div>
       </div>
       <div className={`flex items-center space-x-6
         ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
