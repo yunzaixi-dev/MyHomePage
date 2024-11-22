@@ -24,6 +24,7 @@ import { SocialLinks } from '../components/SocialLinks';
 import { AboutMe } from '../components/AboutMe';
 import { useTheme } from '../contexts/ThemeContext';
 import { GITHUB_USERNAME } from '../config/constants';
+import { updateFaviconFromGithub } from '../utils/favicon';
 
 const MainPage: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -37,6 +38,8 @@ const MainPage: React.FC = () => {
         const githubService = new GitHubService(GITHUB_USERNAME);
         const profile = await githubService.getProfile();
         setGithubProfile(profile);
+        // 使用 GitHub 头像更新网站图标
+        await updateFaviconFromGithub(profile.avatarUrl);
       } catch (error) {
         console.error('Failed to fetch GitHub profile:', error);
       } finally {
