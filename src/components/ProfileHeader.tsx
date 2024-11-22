@@ -41,10 +41,14 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile, loading }
         alt={profile.name}
         className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full mb-4 border-4 border-purple-500 shadow-lg"
       />
-      <h1 className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-4
-        ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-        {profile.name}
-      </h1>
+      <div className="flex items-center gap-4 mb-4">
+        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-r from-transparent ${theme === 'dark' ? 'to-purple-400' : 'to-purple-500'}`}></div>
+        <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-bold
+          ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+          {profile.name}
+        </h1>
+        <div className={`h-[2px] w-12 sm:w-24 bg-gradient-to-l from-transparent ${theme === 'dark' ? 'to-purple-400' : 'to-purple-500'}`}></div>
+      </div>
       <div className={`flex items-center space-x-6
         ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
         <div className="flex items-center">
