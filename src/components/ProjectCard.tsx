@@ -88,11 +88,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ repo }) => {
           ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
           <div className="flex items-center space-x-1">
             <FaStar />
-            <span>{repo.stargazersCount}</span>
+            <span>{repo.stars}</span>
           </div>
           <div className="flex items-center space-x-1">
             <FaCodeBranch />
-            <span>{repo.forksCount}</span>
+            <span>{repo.forks}</span>
           </div>
         </div>
       </div>

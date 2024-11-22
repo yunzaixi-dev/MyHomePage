@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const GITHUB_TOKEN = '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';
+const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
 const githubAxios = axios.create({
   baseURL: 'https://api.github.com',
@@ -63,9 +63,20 @@ class GitHubService {
         public_repos, 
         followers, 
         following 
-      } = userResponse.data;
+      } = userResponse.data as {
+        name: string;
+        bio: string;
+        avatar_url: string;
+        company: string | null;
+        blog: string | null;
+        location: string | null;
+        email: string | null;
+        public_repos: number;
+        followers: number;
+        following: number;
+      };
 
-      const repositories: Repository[] = reposResponse.data.map((repo: any) => ({
+      const repositories: Repository[] = (reposResponse.data as any[]).map((repo) => ({
         name: repo.name,
         description: repo.description,
         url: repo.html_url,
