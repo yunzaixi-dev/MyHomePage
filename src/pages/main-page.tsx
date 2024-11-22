@@ -1,6 +1,6 @@
 // src/pages/MainPage.tsx
 import React, { useEffect, useState } from 'react';
-import { FaGithub, FaEnvelope, FaMedium, FaGitAlt } from 'react-icons/fa';
+import { FaGithub, FaEnvelope, FaMedium, FaGitAlt, FaJava } from 'react-icons/fa';
 import { DiRedis } from 'react-icons/di';
 import { BsSun, BsMoon } from 'react-icons/bs';
 import { 
@@ -14,7 +14,13 @@ import {
   SiPostgresql,
   SiApachekafka,
   SiDocker,
-  SiMeilisearch
+  SiMeilisearch,
+  SiC,
+  SiCplusplus,
+  SiDart,
+  SiKotlin,
+  SiVite,
+  SiJavascript
 } from 'react-icons/si';
 import GitHubService, { GitHubProfile } from '../services/github';
 import { ProfileHeader } from '../components/ProfileHeader';
@@ -66,14 +72,21 @@ const MainPage: React.FC = () => {
   };
 
   const techStack = [
-    // Frontend
-    { name: 'React', icon: <SiReact />, color: 'text-cyan-400' },
-    { name: 'TypeScript', icon: <SiTypescript />, color: 'text-blue-500' },
-    { name: 'Flutter', icon: <SiFlutter />, color: 'text-blue-400' },
-    
     // Systems & Languages
+    { name: 'C', icon: <SiC />, color: 'text-blue-600' },
+    { name: 'C++', icon: <SiCplusplus />, color: 'text-pink-600' },
+    { name: 'JavaScript', icon: <SiJavascript />, color: 'text-yellow-400' },
+    { name: 'Java', icon: <FaJava />, color: 'text-red-500' },
+    { name: 'Kotlin', icon: <SiKotlin />, color: 'text-purple-500' },
+    { name: 'Dart', icon: <SiDart />, color: 'text-blue-400' },
+    { name: 'TypeScript', icon: <SiTypescript />, color: 'text-blue-500' },
     { name: 'Rust', icon: <SiRust />, color: 'text-orange-600' },
     { name: 'Golang', icon: <SiGo />, color: 'text-blue-500' },
+    
+    // Frontend & Mobile
+    { name: 'React', icon: <SiReact />, color: 'text-cyan-400' },
+    { name: 'Flutter', icon: <SiFlutter />, color: 'text-blue-400' },
+    { name: 'Vite', icon: <SiVite />, color: 'text-purple-400' },
     { name: 'Tauri', icon: <SiTauri />, color: 'text-yellow-500' },
     
     // Databases & Search
