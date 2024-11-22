@@ -12,7 +12,9 @@
   "dependencies": {
     "@octokit/auth-oauth-app": "^8.1.1",
     "@octokit/rest": "^21.0.2",
+    "@types/axios": "^0.9.36",
     "autoprefixer": "^10.4.20",
+    "axios": "^1.7.7",
     "postcss": "^8.4.49",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
