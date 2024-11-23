@@ -5,7 +5,6 @@ import { DiRedis } from 'react-icons/di';
 import { BsSun, BsMoon } from 'react-icons/bs';
 import { 
   SiReact, 
-  SiTauri, 
   SiFlutter, 
   SiGo, 
   SiKubernetes, 
@@ -88,7 +87,6 @@ const MainPage: React.FC = () => {
     { name: 'React', icon: <SiReact />, color: 'text-cyan-400' },
     { name: 'Flutter', icon: <SiFlutter />, color: 'text-blue-400' },
     { name: 'Vite', icon: <SiVite />, color: 'text-purple-400' },
-    { name: 'Tauri', icon: <SiTauri />, color: 'text-yellow-500' },
     
     // Databases & Search
     { name: 'PostgreSQL', icon: <SiPostgresql />, color: 'text-blue-400' },
