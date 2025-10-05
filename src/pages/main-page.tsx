@@ -179,6 +179,46 @@ const MainPage: React.FC = () => {
           {/* 关于我 */}
           <AboutMe profile={githubProfile} loading={loading} />
 
+          {/* 服务链接 */}
+          <section className="flex flex-wrap justify-center gap-4 mb-8">
+            <a
+              href="https://monitor.zaixi.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1
+                ${theme === 'dark'
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white shadow-lg shadow-blue-900/50 hover:shadow-xl hover:shadow-blue-800/50'
+                  : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-600/40'
+                }`}
+            >
+              📊 Monitor
+            </a>
+            <a
+              href="https://img.zaixi.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1
+                ${theme === 'dark'
+                  ? 'bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white shadow-lg shadow-purple-900/50 hover:shadow-xl hover:shadow-purple-800/50'
+                  : 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-400 hover:to-purple-500 text-white shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-600/40'
+                }`}
+            >
+              🖼️ Image Host
+            </a>
+            <a
+              href="https://harbor.zaixi.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1
+                ${theme === 'dark'
+                  ? 'bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-500 hover:to-teal-600 text-white shadow-lg shadow-teal-900/50 hover:shadow-xl hover:shadow-teal-800/50'
+                  : 'bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-400 hover:to-teal-500 text-white shadow-lg shadow-teal-500/30 hover:shadow-xl hover:shadow-teal-600/40'
+                }`}
+            >
+              🐳 Harbor
+            </a>
+          </section>
+
           {/* 技术栈 */}
           <TechStack items={techStack} />
 
@@ -209,7 +249,7 @@ const MainPage: React.FC = () => {
               </span>
             </div>
             {loading ? (
-              <div className="grid sm:grid-cols-2 gap-4 w-full max-w-5xl">
+              <div className="grid sm:grid-cols-2 gap-4 w-full max-w-5xl mx-auto">
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className={`rounded-lg p-6 animate-pulse
                     ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'}`}>
@@ -223,7 +263,7 @@ const MainPage: React.FC = () => {
                 ))}
               </div>
             ) : githubProfile ? (
-              <div className="grid sm:grid-cols-2 gap-6 w-full max-w-5xl">
+              <div className="grid sm:grid-cols-2 gap-6 w-full max-w-5xl mx-auto">
                 {githubProfile.repositories
                   .filter(repo => !repo.isTemplate)
                   .map((repo) => (
