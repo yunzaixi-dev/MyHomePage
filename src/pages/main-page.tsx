@@ -189,7 +189,7 @@ const MainPage: React.FC = () => {
                 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                 {/* 文字内容 */}
                 <span className="relative px-4 py-2">
-                  Recent Projects
+                  Latest Commits
                   {/* 悬停时显示的背景效果 */}
                   <span className="absolute inset-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left bg-current opacity-5"></span>
                 </span>
