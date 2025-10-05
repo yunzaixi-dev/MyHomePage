@@ -1,25 +1,16 @@
 // src/pages/MainPage.tsx
 import React, { useEffect, useState } from 'react';
-import { FaGithub, FaEnvelope, FaMedium, FaGitAlt, FaJava } from 'react-icons/fa';
-import { DiRedis } from 'react-icons/di';
+import { FaGithub, FaEnvelope, FaMedium, FaDatabase, FaPython } from 'react-icons/fa';
 import { BsSun, BsMoon } from 'react-icons/bs';
-import { 
-  SiReact, 
-  SiFlutter, 
-  SiGo, 
-  SiKubernetes, 
-  SiTypescript, 
-  SiRust,
+import {
+  SiSvelte,
+  SiGo,
+  SiKubernetes,
+  SiTypescript,
   SiPostgresql,
-  SiApachekafka,
-  SiDocker,
   SiMeilisearch,
-  SiC,
-  SiCplusplus,
-  SiDart,
-  SiKotlin,
-  SiVite,
-  SiJavascript
+  SiDocker,
+  SiCilium
 } from 'react-icons/si';
 import GitHubService, { GitHubProfile } from '../services/github';
 import { ProfileHeader } from '../components/ProfileHeader';
@@ -72,32 +63,23 @@ const MainPage: React.FC = () => {
   };
 
   const techStack = [
-    // Systems & Languages
-    { name: 'C', icon: <SiC />, color: 'text-blue-600' },
-    { name: 'C++', icon: <SiCplusplus />, color: 'text-pink-600' },
-    { name: 'JavaScript', icon: <SiJavascript />, color: 'text-yellow-400' },
-    { name: 'Java', icon: <FaJava />, color: 'text-red-500' },
-    { name: 'Kotlin', icon: <SiKotlin />, color: 'text-purple-500' },
-    { name: 'Dart', icon: <SiDart />, color: 'text-blue-400' },
+    // Frontend
+    { name: 'Svelte', icon: <SiSvelte />, color: 'text-orange-500' },
     { name: 'TypeScript', icon: <SiTypescript />, color: 'text-blue-500' },
-    { name: 'Rust', icon: <SiRust />, color: 'text-orange-600' },
+
+    // Backend
     { name: 'Golang', icon: <SiGo />, color: 'text-blue-500' },
-    
-    // Frontend & Mobile
-    { name: 'React', icon: <SiReact />, color: 'text-cyan-400' },
-    { name: 'Flutter', icon: <SiFlutter />, color: 'text-blue-400' },
-    { name: 'Vite', icon: <SiVite />, color: 'text-purple-400' },
-    
+    { name: 'Python', icon: <FaPython />, color: 'text-yellow-400' },
+
+    // Infrastructure
+    { name: 'Docker', icon: <SiDocker />, color: 'text-blue-500' },
+    { name: 'K3s', icon: <SiKubernetes />, color: 'text-blue-600' },
+    { name: 'Cilium', icon: <SiCilium />, color: 'text-yellow-500' },
+
     // Databases & Search
     { name: 'PostgreSQL', icon: <SiPostgresql />, color: 'text-blue-400' },
-    { name: 'Redis', icon: <DiRedis />, color: 'text-red-500' },
     { name: 'Meilisearch', icon: <SiMeilisearch />, color: 'text-yellow-500' },
-    
-    // Infrastructure & Message Queue
-    { name: 'Docker', icon: <SiDocker />, color: 'text-blue-500' },
-    { name: 'Kubernetes', icon: <SiKubernetes />, color: 'text-blue-600' },
-    { name: 'Kafka', icon: <SiApachekafka />, color: theme === 'dark' ? 'text-slate-200' : 'text-slate-700' },
-    { name: 'Git', icon: <FaGitAlt />, color: 'text-orange-500' },
+    { name: 'Dragonfly', icon: <FaDatabase />, color: 'text-purple-500' },
   ];
 
   const socialLinks = [
@@ -207,7 +189,7 @@ const MainPage: React.FC = () => {
                 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                 {/* 文字内容 */}
                 <span className="relative px-4 py-2">
-                  Featured Projects
+                  Recent Projects
                   {/* 悬停时显示的背景效果 */}
                   <span className="absolute inset-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left bg-current opacity-5"></span>
                 </span>
