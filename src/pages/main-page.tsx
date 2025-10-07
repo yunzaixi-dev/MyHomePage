@@ -1,6 +1,6 @@
 // src/pages/MainPage.tsx
 import React, { useEffect, useState } from 'react';
-import { FaGithub, FaEnvelope, FaMedium, FaDatabase, FaPython } from 'react-icons/fa';
+import { FaGithub, FaEnvelope, FaDatabase, FaPython, FaChartLine, FaDocker, FaBook } from 'react-icons/fa';
 import { BsSun, BsMoon } from 'react-icons/bs';
 import {
   SiSvelte,
@@ -64,28 +64,28 @@ const MainPage: React.FC = () => {
 
   const techStack = [
     // Frontend
-    { name: 'Svelte', icon: <SiSvelte />, color: 'text-orange-500' },
-    { name: 'TypeScript', icon: <SiTypescript />, color: 'text-blue-500' },
+    { name: 'Svelte', icon: <SiSvelte />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
+    { name: 'TypeScript', icon: <SiTypescript />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
 
     // Backend
-    { name: 'Golang', icon: <SiGo />, color: 'text-blue-500' },
-    { name: 'Python', icon: <FaPython />, color: 'text-yellow-400' },
+    { name: 'Golang', icon: <SiGo />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
+    { name: 'Python', icon: <FaPython />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
 
     // Infrastructure
-    { name: 'Docker', icon: <SiDocker />, color: 'text-blue-500' },
-    { name: 'K3s', icon: <SiKubernetes />, color: 'text-blue-600' },
-    { name: 'Cilium', icon: <SiCilium />, color: 'text-yellow-500' },
+    { name: 'Docker', icon: <SiDocker />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
+    { name: 'K3s', icon: <SiKubernetes />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
+    { name: 'Cilium', icon: <SiCilium />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
 
     // Databases & Search
-    { name: 'PostgreSQL', icon: <SiPostgresql />, color: 'text-blue-400' },
-    { name: 'Meilisearch', icon: <SiMeilisearch />, color: 'text-yellow-500' },
-    { name: 'Dragonfly', icon: <FaDatabase />, color: 'text-purple-500' },
+    { name: 'PostgreSQL', icon: <SiPostgresql />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
+    { name: 'Meilisearch', icon: <SiMeilisearch />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
+    { name: 'Dragonfly', icon: <FaDatabase />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
   ];
 
   const socialLinks = [
     { icon: <FaGithub size={getIconSize()} />, href: `https://github.com/${GITHUB_USERNAME}`, label: 'GitHub' },
     { icon: <FaEnvelope size={getIconSize()} />, href: 'mailto:yunzaixi@proton.me', label: 'Email' },
-    { icon: <FaMedium size={getIconSize()} />, href: 'https://medium.zaixi.dev', label: 'Medium' },
+    { icon: <FaBook size={getIconSize()} />, href: 'https://blog.zaixi.dev', label: 'Blog' },
   ];
 
   return (
@@ -185,37 +185,40 @@ const MainPage: React.FC = () => {
               href="https://monitor.zaixi.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1
+              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1
                 ${theme === 'dark'
                   ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white shadow-lg shadow-blue-900/50 hover:shadow-xl hover:shadow-blue-800/50'
                   : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-600/40'
                 }`}
             >
-              📊 Monitor
+              <FaChartLine size={18} />
+              <span>Monitor</span>
             </a>
             <a
-              href="https://img.zaixi.dev"
+              href="https://blog.zaixi.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1
+              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1
                 ${theme === 'dark'
-                  ? 'bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white shadow-lg shadow-purple-900/50 hover:shadow-xl hover:shadow-purple-800/50'
-                  : 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-400 hover:to-purple-500 text-white shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-600/40'
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white shadow-lg shadow-blue-900/50 hover:shadow-xl hover:shadow-blue-800/50'
+                  : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-600/40'
                 }`}
             >
-              🖼️ Image Host
+              <FaBook size={18} />
+              <span>Blog</span>
             </a>
             <a
               href="https://harbor.zaixi.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1
+              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1
                 ${theme === 'dark'
-                  ? 'bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-500 hover:to-teal-600 text-white shadow-lg shadow-teal-900/50 hover:shadow-xl hover:shadow-teal-800/50'
-                  : 'bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-400 hover:to-teal-500 text-white shadow-lg shadow-teal-500/30 hover:shadow-xl hover:shadow-teal-600/40'
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white shadow-lg shadow-blue-900/50 hover:shadow-xl hover:shadow-blue-800/50'
+                  : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-600/40'
                 }`}
             >
-              🐳 Harbor
+              <FaDocker size={18} />
+              <span>Harbor</span>
             </a>
           </section>
 
