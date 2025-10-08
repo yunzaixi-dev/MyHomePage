@@ -10,7 +10,7 @@ import {
   SiPostgresql,
   SiMeilisearch,
   SiDocker,
-  SiCilium
+  SiAnsible
 } from 'react-icons/si';
 import GitHubService, { GitHubProfile } from '../services/github';
 import { ProfileHeader } from '../components/ProfileHeader';
@@ -74,7 +74,7 @@ const MainPage: React.FC = () => {
     // Infrastructure
     { name: 'Docker', icon: <SiDocker />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
     { name: 'K3s', icon: <SiKubernetes />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
-    { name: 'Cilium', icon: <SiCilium />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
+    { name: 'Ansible', icon: <SiAnsible />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
 
     // Databases & Search
     { name: 'PostgreSQL', icon: <SiPostgresql />, color: theme === 'dark' ? 'text-blue-400' : 'text-blue-500' },
